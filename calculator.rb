@@ -5,13 +5,15 @@ require "./user.rb"
 #
 class Calculator
     def initialize(name)
-        @users = []
+        @users = {}
     end
     
     def create_user(name)
         user = User.new(name)
-        @users.push(user)
+        @users[name] = user 
     end
 
-    def add_points
+    def add_points(user_name)
+        @users[user_name]
+    end
 end

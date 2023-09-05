@@ -5,6 +5,14 @@ class User
         @operations = File.new("operations_#{name}.txt","w+")
     end
 
+    def add_points
+        @add_points = add_points + 100
+    end
+
+    def save_operation(line)
+        @operations.
+    end
+
     def to_s
         "The user #{@name} have #{@points} points"
     end
