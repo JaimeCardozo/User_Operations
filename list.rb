@@ -3,7 +3,7 @@ require "./user.rb"
 #view user points
 #view operations
 #
-class Calculator
+class List
     def initialize()
         @users = {}
     end
@@ -23,6 +23,14 @@ class Calculator
         @users[user_name].save_operation(line)
     end
 
+    def all_player
+        #Organizeted
+        #players = []
+        #@users.each do |user|
+        #    players.push(user.) 
+        
+    end
+
     def to_s
         "The users are: #{@users}"
     end
@@ -31,5 +39,5 @@ users = Calculator.new
 users.create_user("kike")
 users.add_points("kike")
 users.add_points("kike")
-users.save_line("kike","2+2")
+users.save_line("kike","4+4\n")
 puts users

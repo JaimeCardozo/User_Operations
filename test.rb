@@ -1,7 +1,2 @@
-users = {}
-users["kike"] = "20"
-if users["kike"] !=nil
-    puts "vamos!"
-else
-    puts "no se puede"
-end
+users = {2:casa, 20:casita, -21:casota, 1:cas}
+array = users.sort

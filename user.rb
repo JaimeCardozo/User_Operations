@@ -14,7 +14,7 @@ class User
     end
 
     def to_s
-        "The user #{@name} have #{@points} points"
+        "#{@name} --------------- #{@points}"
     end
 end
 
