@@ -35,9 +35,4 @@ class List
         "The users are: #{@users}"
     end
 end
-users = Calculator.new
-users.create_user("kike")
-users.add_points("kike")
-users.add_points("kike")
-users.save_line("kike","4+4\n")
-puts users
+
