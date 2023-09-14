@@ -35,4 +35,6 @@ class List
         "The users are: #{@users}"
     end
 end
-
+users = List.new
+users.create_user("Burrito")
+users.save_line("Burrito","")
