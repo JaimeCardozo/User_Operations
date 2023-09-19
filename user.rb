@@ -17,5 +17,3 @@ class User
         "#{@name} --------------- #{@points}"
     end
 end
-user1 = User.new("Sasuke")
-user1.save_operation("BolaJuego\n")

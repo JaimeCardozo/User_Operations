@@ -6,18 +6,20 @@ require "./list.rb"
 class Apps
     def initialize()
         @list = List.new
+        @user_now = ""
     end
 
-    def play(user_name)
+    def play()
         #Game
         puts "Digit your name: "
-        user_name = gets.chomp
-        puts "You should aswer 10 operations"
-        @list.create_user(user_name)
+        @user_name = gets.chomp
+        puts "#{@user_name} should aswer 10 operations"
+        @list.create_user(@user_name)
+        solve_operations()
     end
 
-    def solve_operations 
-        puts "This programam solve mathamatics problems"
+    def solve_operations() 
+        puts "This game solve mathamatics problems"
         i = 0
         while i<=10 do
             i += 1
@@ -47,13 +49,16 @@ class Apps
                     puts "operation invalid: divided by 0"
                         num2 = Random.rand(1..11)
                 end
-                print "#{num1} % #{num2} = "
+                line = "#{num1} % #{num2} = "
+                print line
                 result = num1 % num2
             end
             puts "What is of result? "
             user_result = gets.chomp.to_i
             if user_result == result
                 puts "You are great! This is correct"
+                @list.add_point(@user_name)
+                @list.save_line(@user_name, line)
             else
                 puts "Sorry, keep trying"
             end
@@ -76,16 +81,11 @@ class Apps
         gets
         "Menu:"
         "1. Play"
+
         "2. Clasification"
         "Operations: Write all good operations of one user "
     end
 
-    def test
-        @list.create_user("jose")
-        puts @list
-        @list.save_line("jose","j+j")
-        puts@list
-    end
 end  
 
 def main 
@@ -93,5 +93,5 @@ def main
     apps.run
 end
 #main()
-api = Apps.new 
-api.test
+apps = Apps.new 
+apps.run
