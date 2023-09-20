@@ -23,6 +23,10 @@ class List
         @users[user_name].save_operation(line)
     end
 
+    def score(user_name)
+        @users[user_name].points
+    end
+
     def all_player
         #Organizeted
         #players = []

@@ -6,7 +6,7 @@ require "./list.rb"
 class Apps
     def initialize()
         @list = List.new
-        @user_now = ""
+        @user_name_now = ""
     end
 
     def play()
@@ -16,12 +16,13 @@ class Apps
         puts "#{@user_name} should aswer 10 operations"
         @list.create_user(@user_name)
         solve_operations()
+        puts "You score is: #{@list.score(@user_name)}"
     end
 
     def solve_operations() 
         puts "This game solve mathamatics problems"
-        i = 0
-        while i<=10 do
+        i = 1
+        while i<=3 do
             i += 1
             num1 = Random.rand(11)
             num2 = Random.rand(11)
@@ -29,27 +30,31 @@ class Apps
             print "The operation is: "
             case rando
             when 1
-                print "#{num1} + #{num2} = "
+                line = "#{num1} + #{num2} =\n"
+                print line
                 result = num1 + num2
             when 2
-                print "#{num1} - #{num2} = "
+                line = "#{num1} - #{num2} =\n"
+                print line
                 result = num1 - num2
             when 3
-                print "#{num1} * #{num2} = "
+                line = "#{num1} * #{num2} =\n"
+                print line
                 result = num1 * num2
             when 4
                 if num2 == 0
                     puts "operation invalid: divided by 0"
                         num2 = Random.rand(1..11)
                 end
-                print "#{num1} / #{num2} = "
+                line =  "#{num1} / #{num2} =\n"
+                print line
                 result = num1 / num2
             when 5
                 if num2 == 0
                     puts "operation invalid: divided by 0"
                         num2 = Random.rand(1..11)
                 end
-                line = "#{num1} % #{num2} = "
+                line = "#{num1} % #{num2} =\n"
                 print line
                 result = num1 % num2
             end
@@ -57,7 +62,7 @@ class Apps
             user_result = gets.chomp.to_i
             if user_result == result
                 puts "You are great! This is correct"
-                @list.add_point(@user_name)
+                @list.add_points(@user_name)
                 @list.save_line(@user_name, line)
             else
                 puts "Sorry, keep trying"
@@ -81,9 +86,13 @@ class Apps
         gets
         "Menu:"
         "1. Play"
-
+        play()
         "2. Clasification"
         "Operations: Write all good operations of one user "
+    end
+    def test
+        @list.create_user("jaime")
+        @list.add_points("jaime")
     end
 
 end  
@@ -91,7 +100,6 @@ end
 def main 
     apps = Apps.new
     apps.run
+    #apps.test
 end
-#main()
-apps = Apps.new 
-apps.run
+main()

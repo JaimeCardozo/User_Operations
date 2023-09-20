@@ -1,8 +1,10 @@
 class User
+    attr :points
     def initialize(name= "")
         @name = name
         @points = 0
         @operations = File.new("operations_#{name}.txt","a+")
+        @new_records
     end
 
     def add_point()
@@ -17,3 +19,9 @@ class User
         "#{@name} --------------- #{@points}"
     end
 end
+user = User.new("jaime")
+user.add_point
+user.add_point
+puts user.points
+user.points = 500
+puts user.points
