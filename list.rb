@@ -10,9 +10,7 @@ class List
     
     def create_user(name)
         user = User.new(name)
-        puts user
         @users[name] = user
-        puts @users 
     end
 
     def add_points(user_name)

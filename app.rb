@@ -12,11 +12,11 @@ class Apps
     def play()
         #Game
         puts "Digit your name: "
-        @user_name = gets.chomp
-        puts "#{@user_name} should aswer 10 operations"
-        @list.create_user(@user_name)
+        @user_name_now = gets.chomp
+        puts "#{@user_name_now} should aswer 10 operations"
+        @list.create_user(@user_name_now)
         solve_operations()
-        puts "You score is: #{@list.score(@user_name)}"
+        puts "You score is: #{@list.score(@user_name_now)}"
     end
 
     def solve_operations() 
@@ -62,8 +62,8 @@ class Apps
             user_result = gets.chomp.to_i
             if user_result == result
                 puts "You are great! This is correct"
-                @list.add_points(@user_name)
-                @list.save_line(@user_name, line)
+                @list.add_points(@user_name_now)
+                @list.save_line(@user_name_now, line)
             else
                 puts "Sorry, keep trying"
             end
