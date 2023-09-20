@@ -8,4 +8,6 @@ time2 = Time.now
 time = time2 - time1
 puts time
 times = time.to_i
-print times.is_a?(Integer)
+puts times.is_a?(Integer)
+number = 20 * 0.5
+puts number

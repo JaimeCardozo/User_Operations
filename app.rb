@@ -21,17 +21,20 @@ class Apps
         solve_operations()
         time_later = Time.now
         time_dife = time_later - time_now
-        porcentage = bonus_time(time_dife)
-        bonus_time = porcentage * @list.score(@user_name_now)
-        total_score = @list_score 
+        percentage = bonus_time(time_dife)
+        bonus_time =  @list.score(@user_name_now) * percentage 
+        total_score = @list.score(@user_name_now) + bonus_time
         puts "You score is: #{@list.score(@user_name_now)}"
+        puts "You bonus time is: #{bonus_time}"
+        puts "You total score is: #{total_score}"
+        #in this moment verified if this score is new record
         puts "The time was: #{time_dife} seconds"
     end
 
     def solve_operations() 
         puts "This game solve mathamatics problems"
         i = 1
-        while i<=10 do
+        while i<=2 do
             i += 1
             num1 = Random.rand(11)
             num2 = Random.rand(11)
@@ -84,15 +87,15 @@ class Apps
 
     def bonus_time(time_seconds)
         if time_seconds < 16
-           percentage = 100
+           percentage = 1
         elsif time_seconds > 30
             percentage = 0
         else
             time = 30 - time_seconds
-            porcentage_comple = time * 100 / 14
-            porcentage = 100 - porcentage_comple
+            percentage_comple = time / 14
+            percentage = 1 - percentage_comple
         end
-        return porcentage 
+        return percentage 
     end
 
     def operations
