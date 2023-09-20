@@ -1,5 +1,6 @@
 require "./user.rb"
 require "./list.rb"
+require 'time'
 #play 
 #operations
 #clasification
@@ -13,16 +14,24 @@ class Apps
         #Game
         puts "Digit your name: "
         @user_name_now = gets.chomp
-        puts "#{@user_name_now} should aswer 10 operations"
+        puts "#{@user_name_now} should answer 10 operations"
         @list.create_user(@user_name_now)
+        puts "-"*80
+        time_now = Time.now
         solve_operations()
+        time_later = Time.now
+        time_dife = time_later - time_now
+        porcentage = bonus_time(time_dife)
+        bonus_time = porcentage * @list.score(@user_name_now)
+        total_score = @list_score 
         puts "You score is: #{@list.score(@user_name_now)}"
+        puts "The time was: #{time_dife} seconds"
     end
 
     def solve_operations() 
         puts "This game solve mathamatics problems"
         i = 1
-        while i<=3 do
+        while i<=10 do
             i += 1
             num1 = Random.rand(11)
             num2 = Random.rand(11)
@@ -73,6 +82,19 @@ class Apps
         
     end 
 
+    def bonus_time(time_seconds)
+        if time_seconds < 16
+           percentage = 100
+        elsif time_seconds > 30
+            percentage = 0
+        else
+            time = 30 - time_seconds
+            porcentage_comple = time * 100 / 14
+            porcentage = 100 - porcentage_comple
+        end
+        return porcentage 
+    end
+
     def operations
     end
 
@@ -84,6 +106,7 @@ class Apps
         puts "Calculater! "
         puts "Play game: Press enter"
         gets
+        puts "-"*80
         "Menu:"
         "1. Play"
         play()
