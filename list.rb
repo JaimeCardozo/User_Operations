@@ -25,6 +25,10 @@ class List
         @users[user_name].points
     end
 
+    def new_record(user_name, record)
+        @users[user_name].new_recor(record)
+    end
+
     def all_player
         #Organizeted
         #players = []

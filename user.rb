@@ -4,13 +4,14 @@ class User
         @name = name
         @points = 0
         @operations = File.new("operations_#{name}.txt","a+")
-        if !File.file?("operations_kike.txt")
+        if !File.file?("record_#{name}.txt")
             file_record = File.new("record_#{name}.txt","w+")
             file_record.write("0")
+            file_record.close
             @record = 0
         else
             file_record = File.open("record_#{name}.txt")
-            @record = file_record.gets
+            @record = file_record.gets.to_i
             file_record.close
         end
     end
@@ -22,11 +23,14 @@ class User
         @operations.write(line)
     end
 
-    def new_records(new_record)
+    def new_recor(new_record)
+        puts "entre"
+        puts new_record
         if new_record > @record
             @record = new_record
             file_record = File.open("record_#{@name}.txt","w+")
             file_record.write(@record)
+            puts "Congratulations! New record, this is: #{@record}"
         end
     end
 

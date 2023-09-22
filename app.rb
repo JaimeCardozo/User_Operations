@@ -27,8 +27,8 @@ class Apps
         puts "You score is: #{@list.score(@user_name_now)}"
         puts "You bonus time is: #{bonus_time}"
         puts "You total score is: #{total_score}"
-        #in this moment verified if this score is new record
         puts "The time was: #{time_dife} seconds"
+        @list.new_record(@user_name_now, total_score)     
     end
 
     def solve_operations() 
