@@ -3,13 +3,14 @@ class User
     def initialize(name= "")
         @name = name
         @points = 0
-        if !File.file?("record_#{name}.txt")
-            file_record = File.new("record_#{name}.txt","w+")
+        if !File.file?("records./record_#{name}.txt")
+            file_record = File.new(File.join(Dir.pwd, "/records/record_#{name}.txt"),"w+")
             file_record.write("0")
+            file_record.write(name)
             file_record.close
             @record = 0
         else
-            file_record = File.open("record_#{name}.txt")
+            file_record = File.open(File.join(Dir.pwd, "/records/record_#{name}.txt"))
             @record = file_record.gets.to_i
             file_record.close
         end
@@ -19,7 +20,7 @@ class User
     end
 
     def save_operation(line)
-        @operations = File.open("operations_#{@name}.txt","a+")
+        @operations = File.open(File.join(Dir.pwd, "/records/operations_#{@name}.txt","a+"))
         @operations.write(line)
         @operations.close
     end

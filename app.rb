@@ -100,7 +100,7 @@ class Apps
     end
 
     def ranking
-        #players 
+        #Opens all file in folder records (every file have: record and name)
     end
 
     def run 
@@ -116,6 +116,7 @@ class Apps
         "1. Play"
         #play()
         "2. Clasification"
+        ranking()
         "3. Record_user"
         "Operations: Write all good operations of one user "
         operations()        
