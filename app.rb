@@ -34,7 +34,7 @@ class Apps
     def solve_operations() 
         puts "This game solve mathamatics problems"
         i = 1
-        while i<=2 do
+        while i<=3 do
             i += 1
             num1 = Random.rand(11)
             num2 = Random.rand(11)

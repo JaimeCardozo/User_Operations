@@ -15,6 +15,6 @@ puts File.file?("operations_kike.txt")
 file = File.open("operations_kike.txt")
 line = file.gets
 puts line.is_a?(String)
-record = File.open("operations_kike.txt","w+")
+record = File.open("operations_kike33.txt","a+")
 new_records = record.gets
 record.write(0)

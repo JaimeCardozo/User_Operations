@@ -3,7 +3,6 @@ class User
     def initialize(name= "")
         @name = name
         @points = 0
-        @operations = File.new("operations_#{name}.txt","a+")
         if !File.file?("record_#{name}.txt")
             file_record = File.new("record_#{name}.txt","w+")
             file_record.write("0")
@@ -20,11 +19,12 @@ class User
     end
 
     def save_operation(line)
+        @operations = File.open("operations_#{@name}.txt","a+")
         @operations.write(line)
+        @operations.close
     end
 
     def new_recor(new_record)
-        puts "entre"
         puts new_record
         if new_record > @record
             @record = new_record
