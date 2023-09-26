@@ -18,3 +18,8 @@ puts line.is_a?(String)
 record = File.open("operations_kike33.txt","a+")
 new_records = record.gets
 record.write(0)
+File.open("operations_kike.txt") do |file|
+    while line = file.gets
+        puts line
+    end
+end

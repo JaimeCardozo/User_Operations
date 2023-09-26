@@ -29,6 +29,10 @@ class List
         @users[user_name].new_recor(record)
     end
 
+    def showOperations(user_name)
+           @users[user_name].showOP
+    end
+
     def all_player
         #Organizeted
         #players = []

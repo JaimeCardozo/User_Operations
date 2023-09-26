@@ -12,10 +12,7 @@ class Apps
 
     def play()
         #Game
-        puts "Digit your name: "
-        @user_name_now = gets.chomp
         puts "#{@user_name_now} should answer 10 operations"
-        @list.create_user(@user_name_now)
         puts "-"*80
         time_now = Time.now
         solve_operations()
@@ -99,6 +96,7 @@ class Apps
     end
 
     def operations
+        @list.showOperations(@user_name_now)
     end
 
     def ranking
@@ -109,12 +107,18 @@ class Apps
         puts "Calculater! "
         puts "Play game: Press enter"
         gets
+        puts "Digit your name: "
+        @user_name_now = gets.chomp
+        @list.create_user(@user_name_now)
         puts "-"*80
+        puts "Welcolme #{@user_name_now}!!!"
         "Menu:"
         "1. Play"
-        play()
+        #play()
         "2. Clasification"
+        "3. Record_user"
         "Operations: Write all good operations of one user "
+        operations()        
     end
     def test
         @list.create_user("jaime")

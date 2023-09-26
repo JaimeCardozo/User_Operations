@@ -34,6 +34,18 @@ class User
         end
     end
 
+    def showOP
+        if File.exists?("operations_#{@name}.txt")
+            File.open("operations_#{@name}.txt") do |file|
+                while line = file.gets
+                    puts line
+                end
+            end
+        else
+            puts "The user #{@name} don't have good operations"
+        end
+    end
+
     def to_s
         "#{@name} --------------- #{@points}"
     end
