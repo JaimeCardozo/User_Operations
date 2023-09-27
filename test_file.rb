@@ -1,0 +1,1 @@
+File.open(File.join(Dir.pwd, "./operations/kike.txt"),"a+")

@@ -3,10 +3,9 @@ class User
     def initialize(name= "")
         @name = name
         @points = 0
-        if !File.file?("records./record_#{name}.txt")
+        if !File.file?("records./#{name}.txt")
             file_record = File.new(File.join(Dir.pwd, "/records/#{name}.txt"),"w+")
             file_record.write("0")
-            file_record.write(name)
             file_record.close
             @record = 0
         else
@@ -20,24 +19,24 @@ class User
     end
 
     def save_operation(line)
-        @operations = File.open(File.join(Dir.pwd, "/records/operations_#{@name}.txt","a+"))
-        @operations.write(line)
-        @operations.close
+        operations = File.open(File.join(Dir.pwd, "/operations/#{@name}.txt"),"a+")
+        operations.write(line)
+        operations.close
     end
 
     def new_recor(new_record)
         puts new_record
         if new_record > @record
             @record = new_record
-            file_record = File.open("#{@name}.txt","w+")
+            file_record = File.open(File.join(Dir.pwd, "/records/#{@name}.txt"),"w+")
             file_record.write(@record)
             puts "Congratulations! New record, this is: #{@record}"
         end
     end
 
     def showOP
-        if File.exists?("operations_#{@name}.txt")
-            File.open("operations_#{@name}.txt") do |file|
+        if File.exists?("/operations/#{@name}.txt")
+            File.open(File.join(Dir.pwd, "/operations/#{@name}.txt")) do |file|
                 while line = file.gets
                     puts line
                 end
