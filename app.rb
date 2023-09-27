@@ -114,12 +114,12 @@ class Apps
         puts "Welcolme #{@user_name_now}!!!"
         "Menu:"
         "1. Play"
-        #play()
+        play()
         "2. Clasification"
-        ranking()
+        #ranking()
         "3. Record_user"
         "Operations: Write all good operations of one user "
-        operations()        
+        #operations()        
     end
     def test
         @list.create_user("jaime")
