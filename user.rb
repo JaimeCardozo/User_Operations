@@ -31,6 +31,7 @@ class User
             file_record = File.open(File.join(Dir.pwd, "/records/#{@name}.txt"),"w+")
             file_record.write(@record)
             puts "Congratulations! New record, this is: #{@record}"
+            file_record.close
         end
     end
 

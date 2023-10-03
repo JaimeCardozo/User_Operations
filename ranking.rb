@@ -9,14 +9,14 @@ Dir.foreach(path) do |filename|
      
        #some code
        score = file.gets
-       ranking[name] = score
+       ranking[name] = score.to_i
        file.close
      
        # more code
      end
 
-puts ranking
-if ranking == {}
+if ranking != {}
+  puts "The ranking is: "
   ranking = ranking.sort_by(&:last)
   ranking = ranking.reverse
   i = 1
@@ -26,5 +26,5 @@ if ranking == {}
     i += 1
   end
 else
-  puts "Users do not exist"
+  puts "Users ranking do not exist"
 end
