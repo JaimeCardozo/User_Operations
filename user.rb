@@ -35,7 +35,9 @@ class User
     end
 
     def showOP
-        if File.exists?("/operations/#{@name}.txt")
+        if File.exists?("operations./#{@name}.txt")
+            puts "The user #{@name} have record of: #{@record} points"
+            puts "Your operations are: "
             File.open(File.join(Dir.pwd, "/operations/#{@name}.txt")) do |file|
                 while line = file.gets
                     puts line

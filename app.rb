@@ -100,11 +100,12 @@ class Apps
     end
 
     def ranking
-       require 'ranking.rb'
+       require './ranking.rb'
     end
 
     def run 
         puts "Calculater! "
+        puts ""
         puts "Play game: Press enter"
         gets
         puts "Digit your name: "
@@ -118,7 +119,7 @@ class Apps
             
             2. Clasification
             
-            3. Record_user
+            3. Record_user and Operations
             
             4. Exit"
             puts ""
@@ -133,6 +134,7 @@ class Apps
                     operations()
                 when "4"
                     puts "Thanks for play!"
+                    break
                 else
                     puts "Invalid option"
             end
