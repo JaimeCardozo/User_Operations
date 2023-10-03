@@ -16,11 +16,15 @@ Dir.foreach(path) do |filename|
      end
 
 puts ranking
-ranking = ranking.sort_by(&:last)
-ranking = ranking.reverse
-i = 1
-ranking.each do |date|
-  #puts "#{date[1]}. #{date[0]}"
-  puts "#{i}. #{date[0]} -------- #{date[1]}"
-  i += 1
+if ranking == {}
+  ranking = ranking.sort_by(&:last)
+  ranking = ranking.reverse
+  i = 1
+  ranking.each do |date|
+    #puts "#{date[1]}. #{date[0]}"
+    puts "#{i}. #{date[0]} -------- #{date[1]}"
+    i += 1
+  end
+else
+  puts "Users do not exist"
 end

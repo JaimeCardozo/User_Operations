@@ -100,7 +100,7 @@ class Apps
     end
 
     def ranking
-        #Opens all file in folder records (every file have: record and name)
+       require 'ranking.rb'
     end
 
     def run 
@@ -112,25 +112,36 @@ class Apps
         @list.create_user(@user_name_now)
         puts "-"*80
         puts "Welcolme #{@user_name_now}!!!"
-        "Menu:"
-        "1. Play"
-        play()
-        "2. Clasification"
-        #ranking()
-        "3. Record_user"
-        "Operations: Write all good operations of one user "
-        #operations()        
+        loop do
+            puts "Menu:
+            1. Play
+            
+            2. Clasification
+            
+            3. Record_user
+            
+            4. Exit"
+            puts ""
+            print "Digit your option: "
+            option = gets.chomp 
+            case option
+                when "1"
+                    play()
+                when "2"
+                    ranking()
+                when "3"
+                    operations()
+                when "4"
+                    puts "Thanks for play!"
+                else
+                    puts "Invalid option"
+            end
+        end       
     end
-    def test
-        @list.create_user("jaime")
-        @list.add_points("jaime")
-    end
-
 end  
 
 def main 
     apps = Apps.new
     apps.run
-    #apps.test
 end
 main()
